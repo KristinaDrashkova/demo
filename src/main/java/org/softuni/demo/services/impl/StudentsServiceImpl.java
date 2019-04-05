@@ -1,7 +1,6 @@
 package org.softuni.demo.services.impl;
 
 import org.modelmapper.ModelMapper;
-import org.softuni.demo.entities.Student;
 import org.softuni.demo.models.binding.CreateStudentBindingModel;
 import org.softuni.demo.repositories.StudentsRepository;
 import org.softuni.demo.services.StudentsService;
