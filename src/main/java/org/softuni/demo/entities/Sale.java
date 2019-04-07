@@ -1,11 +1,6 @@
 package org.softuni.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author kristina.drashkova
@@ -21,8 +16,40 @@ public class Sale {
 
     private Double discount;
 
-
+    @OneToOne(targetEntity = Car.class)
     private Long carId;
 
+    @ManyToOne(targetEntity = Customer.class)
     private Long customerId;
+
+    public Sale() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
+    }
+
+    public Long getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Long carId) {
+        this.carId = carId;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
 }

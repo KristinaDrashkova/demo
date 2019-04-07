@@ -1,15 +1,6 @@
 package org.softuni.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import java.util.List;
+import javax.persistence.*;
 import java.util.Set;
 
 /**
@@ -23,12 +14,11 @@ public class Car {
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     private Long id;
 
-
     private String make;
 
     private String model;
 
-    @Column(name = "traveled_distance")
+    @Column(name = "travelled_distance")
     private Long traveledDistance;
 
     @ManyToMany
@@ -36,4 +26,54 @@ public class Car {
     joinColumns = @JoinColumn(name = "part_id"),
     inverseJoinColumns = @JoinColumn(name = "car_id"))
     private Set<Part> parts;
+
+    @OneToOne(mappedBy = "carId")
+    private Sale sale;
+
+    public Car() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public Long getTraveledDistance() {
+        return traveledDistance;
+    }
+
+    public void setTraveledDistance(Long traveledDistance) {
+        this.traveledDistance = traveledDistance;
+    }
+
+    public Set<Part> getParts() {
+        return parts;
+    }
+
+    public void setParts(Set<Part> parts) {
+        this.parts = parts;
+    }
+
+    public Sale getSale() {
+        return sale;
+    }
+
+    public void setSale(Sale sale) {
+        this.sale = sale;
+    }
 }
