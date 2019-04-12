@@ -21,10 +21,14 @@ public class Part {
 
     private Long quantity;
 
-    @ManyToOne(targetEntity = Supplier.class)
-    private Long supplierId;
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplierId;
 
-    @ManyToMany(mappedBy = "parts")
+    @ManyToMany
+    @JoinTable(name = "parts_cars",
+            joinColumns = @JoinColumn(name = "part_id"),
+            inverseJoinColumns = @JoinColumn(name = "car_id"))
     private Set<Car> cars;
 
     public Part() {
@@ -58,11 +62,15 @@ public class Part {
         this.quantity = quantity;
     }
 
-    public Long getSupplierId() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Supplier getSupplierId() {
         return supplierId;
     }
 
-    public void setSupplierId(Long supplierId) {
+    public void setSupplierId(Supplier supplierId) {
         this.supplierId = supplierId;
     }
 

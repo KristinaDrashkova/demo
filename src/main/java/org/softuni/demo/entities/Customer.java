@@ -21,10 +21,10 @@ public class Customer {
     private Date birthDate;
 
     @Column(name = "is_young_driver")
-    private Boolean isYoungDriver;
+    private Boolean youngDriver;
 
-    @OneToMany(mappedBy = "customerId")
-    private Set<Sale> sale;
+    @OneToMany(mappedBy = "customer")
+    private Set<Sale> sales;
 
     public Customer() {
     }
@@ -50,18 +50,18 @@ public class Customer {
     }
 
     public Boolean getYoungDriver() {
-        return isYoungDriver;
+        return youngDriver;
     }
 
     public void setYoungDriver(Boolean youngDriver) {
-        isYoungDriver = youngDriver;
+        this.youngDriver = youngDriver;
     }
 
-    public Set<Sale> getSale() {
-        return sale;
+    public Set<Sale> getSales() {
+        return sales;
     }
 
-    public void setSale(Set<Sale> sale) {
-        this.sale = sale;
+    public void setSales(Set<Sale> sales) {
+        this.sales = sales;
     }
 }

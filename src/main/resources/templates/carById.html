@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers Ascending</title>
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<table border="1" style="width:300px">
+    <tr>
+        <td colspan="3" align="center"><b>Car</b></td>
+    </tr>
+    <tr>
+        <td><b>make</b></td>
+        <td><b>model</b></td>
+        <td><b>travelled distance</b></td>
+    </tr>
+    <tr>
+        <td th:text="${car.make}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.travelledDistance}"></td>
+    </tr>
+    <tr>
+        <td colspan="3" align="center"><b>Parts</b></td>
+    </tr>
+    <tr>
+        <td><b>name</b></td>
+        <td colspan="2"><b>price</b></td>
+    </tr>
+    <tr th:each="part : ${car.parts}" th:object="${part}">
+        <td th:text="*{name}"></td>
+        <td colspan="2" th:text="*{price}"></td>
+    </tr>
+</table>
+</body>
+</html>

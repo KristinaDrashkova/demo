@@ -16,10 +16,10 @@ public class Supplier {
 
     private String name;
 
-    @Column(name = "is_imported")
-    private Boolean isImported;
+    @Column(name = "is_importer")
+    private Boolean importer;
 
-    @OneToMany(mappedBy = "supplierId")
+    @OneToMany(mappedBy = "supplierId", cascade = CascadeType.ALL)
     private Set<Part> parts;
 
     public Supplier() {
@@ -37,12 +37,16 @@ public class Supplier {
         this.name = name;
     }
 
-    public Boolean getImported() {
-        return isImported;
+    public Boolean getImporter() {
+        return importer;
     }
 
-    public void setImported(Boolean imported) {
-        isImported = imported;
+    public void setImporter(Boolean importer) {
+        this.importer = importer;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Set<Part> getParts() {

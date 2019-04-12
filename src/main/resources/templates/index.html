@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <th:block th:with="average = ${#aggregates.avg(collection)}">
-        <div th:text="${average > 15 ? true : false}"></div>
-    </th:block>
-    <h1 th:text="|Hello, ${pesho}|"></h1>
-    <form method="post" action="/students/create">
-        <input type="text" name="name" />
-        <input type="number" name="willToLive" />
-        <button type="submit">Submit</button>
-    </form>
+    <th:block th:with="average = ${collection}">
+
+    <!--</th:block>-->
+    <h1 th:text="|Hello, Pesho|"></h1>
+    <!--<form method="post" action="/students/create">-->
+        <!--<input type="text" name="name" />-->
+        <!--<input type="number" name="willToLive" />-->
+        <!--<button type="submit">Submit</button>-->
+    <!--</form>-->
 </body>
 </html>

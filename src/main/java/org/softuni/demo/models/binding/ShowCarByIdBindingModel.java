@@ -1,34 +1,20 @@
-package org.softuni.demo.entities;
+package org.softuni.demo.models.binding;
 
-import javax.persistence.*;
 import java.util.Set;
 
 /**
  * @author kristina.drashkova
  */
-@Entity
-@Table(name = "cars")
-public class Car {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true, updatable = false)
-    private Long id;
-
+public class ShowCarByIdBindingModel {
     private String make;
 
     private String model;
 
-    @Column(name = "travelled_distance")
     private Long travelledDistance;
 
-    @ManyToMany(mappedBy = "cars")
-    private Set<Part> parts;
+    private Set<ShowPartBindingModel> parts;
 
-    public Car() {
-    }
-
-    public Long getId() {
-        return id;
+    public ShowCarByIdBindingModel() {
     }
 
     public String getMake() {
@@ -55,11 +41,11 @@ public class Car {
         this.travelledDistance = travelledDistance;
     }
 
-    public Set<Part> getParts() {
+    public Set<ShowPartBindingModel> getParts() {
         return parts;
     }
 
-    public void setParts(Set<Part> parts) {
+    public void setParts(Set<ShowPartBindingModel> parts) {
         this.parts = parts;
     }
 }
