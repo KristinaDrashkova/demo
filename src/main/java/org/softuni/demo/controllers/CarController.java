@@ -1,8 +1,7 @@
 package org.softuni.demo.controllers;
 
-import org.softuni.demo.models.binding.CreateCarBindingModel;
+import org.softuni.demo.models.binding.CreateAndShowCarBindingModel;
 import org.softuni.demo.models.binding.ShowCarByIdBindingModel;
-import org.softuni.demo.models.binding.ShowPartBindingModel;
 import org.softuni.demo.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ public class CarController extends BaseController {
     @RequestMapping("/{make}")
     public ModelAndView getCarsByMake(@PathVariable("make") String make) {
         ModelAndView modelAndView = view("cars");
-        List<CreateCarBindingModel> cars = carService.getCarsOrdered(make);
+        List<CreateAndShowCarBindingModel> cars = carService.getCarsOrdered(make);
         modelAndView.addObject("cars", cars);
 
         return modelAndView;
@@ -35,6 +34,15 @@ public class CarController extends BaseController {
         ModelAndView modelAndView = view("carById");
         ShowCarByIdBindingModel car = carService.getCarById(id);
         modelAndView.addObject("car", car);
+
+        return modelAndView;
+    }
+
+    @RequestMapping("/all")
+    public ModelAndView getAllCars() {
+        ModelAndView modelAndView = view("cars");
+        List<CreateAndShowCarBindingModel> cars = carService.getAll();
+        modelAndView.addObject("cars", cars);
 
         return modelAndView;
     }

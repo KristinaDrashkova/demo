@@ -3,10 +3,8 @@ package org.softuni.demo.services.impl;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.softuni.demo.entities.Car;
-import org.softuni.demo.entities.Part;
-import org.softuni.demo.models.binding.CreateCarBindingModel;
+import org.softuni.demo.models.binding.CreateAndShowCarBindingModel;
 import org.softuni.demo.models.binding.ShowCarByIdBindingModel;
-import org.softuni.demo.models.binding.ShowPartBindingModel;
 import org.softuni.demo.repositories.CarRepository;
 import org.softuni.demo.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +25,11 @@ public class CarServiceImpl implements CarService {
     private ModelMapper modelMapper;
 
     @Override
-    public List<Car> getAll() {
-        return null;
+    public List<CreateAndShowCarBindingModel> getAll() {
+        Type listType = new TypeToken<List<CreateAndShowCarBindingModel>>() {
+        }.getType();
+
+        return modelMapper.map(carRepository.findAll(), listType);
     }
 
     @Override
@@ -37,8 +38,9 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<CreateCarBindingModel> getCarsOrdered(String make) {
-        Type listType = new TypeToken<List<CreateCarBindingModel>>() {}.getType();
+    public List<CreateAndShowCarBindingModel> getCarsOrdered(String make) {
+        Type listType = new TypeToken<List<CreateAndShowCarBindingModel>>() {
+        }.getType();
 
         return modelMapper.map(carRepository.getCarsByModelAscAndTravelledDistanceDesc(make), listType);
     }

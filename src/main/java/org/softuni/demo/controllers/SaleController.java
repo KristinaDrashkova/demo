@@ -19,7 +19,7 @@ public class SaleController extends BaseController {
     @Autowired
     private SaleService saleService;
 
-    @RequestMapping
+    @RequestMapping("/all")
     public ModelAndView getAllSales() {
         ModelAndView modelAndView = view("sales");
         List<ShowSaleBindingModel> sales = saleService.getAll();

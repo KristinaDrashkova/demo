@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customers Ascending</title>
-    <link rel="stylesheet" href="../static/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/style.css">
+    <title>Customers</title>
+    <link rel="stylesheet" href="../../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/style.css">
 </head>
 <body>
 <table border="1" style="width:300px">
     <tr>
         <td colspan="3" align="center"><b>Customers</b></td>
+    </tr>
+    <tr>
+        <td><b>name</b></td>
+        <td><b>date of birth</b></td>
+        <td><b>young driver</b></td>
     </tr>
     <tr th:each="customer : ${customers}" th:object="${customer}">
         <td th:text="*{name}"></td>

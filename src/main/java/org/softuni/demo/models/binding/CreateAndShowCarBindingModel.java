@@ -3,14 +3,14 @@ package org.softuni.demo.models.binding;
 /**
  * @author kristina.drashkova
  */
-public class CreateCarBindingModel {
+public class CreateAndShowCarBindingModel {
     private String make;
 
     private String model;
 
     private Long traveledDistance;
 
-    public CreateCarBindingModel() {
+    public CreateAndShowCarBindingModel() {
     }
 
     public String getMake() {
