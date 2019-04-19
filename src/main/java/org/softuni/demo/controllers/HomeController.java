@@ -23,7 +23,7 @@ public class HomeController extends BaseController {
     @GetMapping("/")
     public ModelAndView index(ModelAndView modelAndView) {
         modelAndView.addObject("pesho", "peshkata");
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("/commons/index");
 
         List<Integer> collection = Arrays.asList(5, 7, 20, 30);
 

@@ -12,7 +12,7 @@ import java.util.List;
 public interface CarService {
     List<CreateAndShowCarBindingModel> getAll();
 
-    boolean createCar();
+    CreateAndShowCarBindingModel createCar(CreateAndShowCarBindingModel car);
 
     List<CreateAndShowCarBindingModel> getCarsOrdered(String make);
 

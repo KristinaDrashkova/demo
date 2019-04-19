@@ -1,5 +1,10 @@
 package org.softuni.demo.models.binding;
 
+import org.softuni.demo.entities.Part;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author kristina.drashkova
  */
@@ -8,9 +13,12 @@ public class CreateAndShowCarBindingModel {
 
     private String model;
 
-    private Long traveledDistance;
+    private Long travelledDistance;
+
+    private Set<Long> parts;
 
     public CreateAndShowCarBindingModel() {
+        parts = new HashSet<>();
     }
 
     public String getMake() {
@@ -29,11 +37,19 @@ public class CreateAndShowCarBindingModel {
         this.model = model;
     }
 
-    public Long getTraveledDistance() {
-        return traveledDistance;
+    public Long getTravelledDistance() {
+        return travelledDistance;
     }
 
-    public void setTraveledDistance(Long traveledDistance) {
-        this.traveledDistance = traveledDistance;
+    public void setTravelledDistance(Long travelledDistance) {
+        this.travelledDistance = travelledDistance;
+    }
+
+    public Set<Long> getParts() {
+        return parts;
+    }
+
+    public void setParts(Set<Long> parts) {
+        this.parts = parts;
     }
 }

@@ -3,7 +3,9 @@ package org.softuni.demo.models.binding;
 /**
  * @author kristina.drashkova
  */
-public class CreatePartBindingModel {
+public class CreateAndShowPartBindingModel {
+    private Long id;
+
     private String name;
 
     private Double price;
@@ -12,7 +14,15 @@ public class CreatePartBindingModel {
 
     private Long supplierId;
 
-    public CreatePartBindingModel() {
+    public CreateAndShowPartBindingModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

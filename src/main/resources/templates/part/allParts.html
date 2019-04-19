@@ -10,20 +10,26 @@
 <body>
 <table border="1" style="width:300px">
     <tr>
-        <td colspan="3" align="center"><b>Customers</b></td>
+        <td colspan="5" align="center"><b>Parts</b></td>
     </tr>
     <tr>
         <td><b>name</b></td>
-        <td><b>date of birth</b></td>
-        <td><b>young driver</b></td>
+        <td><b>price</b></td>
+        <td><b>supplier</b></td>
+        <td><b>quantity</b></td>
+        <td><b>select</b></td>
     </tr>
-    <tr th:each="customer : ${customers}" th:object="${customer}">
+    <tr th:each="part : ${parts}" th:object="${part}">
         <td th:text="*{name}"></td>
-        <td th:text="*{birthDate}"></td>
-        <td th:text="*{youngDriver}"></td>
+        <td th:text="*{price}"></td>
+        <td th:text="*{supplierId}"></td>
+        <td th:text="*{quantity}"></td>
+        <td>
+            <a class="btn btn-success btn-xs" th:href="@{/parts/{id}(id = ${part.id})}">Select</a>
+        </td>
     </tr>
 </table>
-<a class="btn btn-default" th:href="@{/customers/create}">Create New Customer</a>
+<a class="btn btn-default" th:href="@{/parts/create}">Create New Part</a>
 <a class="btn btn-default btn-xs" th:href="@{/}">back &raquo;</a>
 </body>
 </html>

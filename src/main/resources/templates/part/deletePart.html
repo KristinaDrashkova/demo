@@ -1,0 +1,18 @@
+<main xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" th:action="@{/parts/delete/{id}(id=${part.id})}" method="POST">
+                <fieldset>
+                    <legend>Delete?</legend>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" th:href="@{/parts/{id}(id = ${part.id})}">Cancel</a>
+                            <input type="submit" class="btn btn-danger" value="Delete"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</main>

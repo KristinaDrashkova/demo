@@ -21,7 +21,10 @@ public class Car {
     @Column(name = "travelled_distance")
     private Long travelledDistance;
 
-    @ManyToMany(mappedBy = "cars")
+    @ManyToMany
+    @JoinTable(name = "parts_cars",
+            joinColumns = @JoinColumn(name = "car_id"),
+            inverseJoinColumns = @JoinColumn(name = "part_id"))
     private Set<Part> parts;
 
     public Car() {

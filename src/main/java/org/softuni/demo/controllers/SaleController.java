@@ -21,7 +21,7 @@ public class SaleController extends BaseController {
 
     @RequestMapping("/all")
     public ModelAndView getAllSales() {
-        ModelAndView modelAndView = view("sales");
+        ModelAndView modelAndView = view("sale/allSales");
         List<ShowSaleBindingModel> sales = saleService.getAll();
         modelAndView.addObject("sales", sales);
 
@@ -30,7 +30,7 @@ public class SaleController extends BaseController {
 
     @RequestMapping("/{id}")
     public ModelAndView getSaleById(@PathVariable(value = "id") Long id) {
-        ModelAndView modelAndView = view("sale");
+        ModelAndView modelAndView = view("sale/saleById");
         ShowSaleBindingModel sale = saleService.getSaleById(id);
         modelAndView.addObject("sale", sale);
 
@@ -39,7 +39,7 @@ public class SaleController extends BaseController {
 
     @RequestMapping("/discounted")
     public ModelAndView getSaleWithDiscount() {
-        ModelAndView modelAndView = view("sales");
+        ModelAndView modelAndView = view("sale/allSales");
         List<ShowSaleBindingModel> sales = saleService.getSalesByDiscount(0d);
         modelAndView.addObject("sales", sales);
 
@@ -48,7 +48,7 @@ public class SaleController extends BaseController {
 
     @RequestMapping("/discounted/{discount}")
     public ModelAndView getSaleWithGivenDiscount(@PathVariable(value = "discount") Double discount) {
-        ModelAndView modelAndView = view("sales");
+        ModelAndView modelAndView = view("sale/allSales");
         List<ShowSaleBindingModel> sales = saleService.getSalesByDiscount(discount);
         modelAndView.addObject("sales", sales);
 

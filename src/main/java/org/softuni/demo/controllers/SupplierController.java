@@ -20,7 +20,7 @@ public class SupplierController extends BaseController {
 
     @RequestMapping("/local")
     public ModelAndView getAllLocalSuppliers() {
-        ModelAndView modelAndView = view("suppliers");
+        ModelAndView modelAndView = view("supplier/suppliers");
         List<ShowSupplierBindingModel> suppliers = supplierService.getAllLocal();
         modelAndView.addObject("suppliers", suppliers);
 
@@ -29,7 +29,7 @@ public class SupplierController extends BaseController {
 
     @RequestMapping("/importers")
     public ModelAndView getAllImporterSuppliers() {
-        ModelAndView modelAndView = view("suppliers");
+        ModelAndView modelAndView = view("supplier/suppliers");
         List<ShowSupplierBindingModel> suppliers = supplierService.getAllImporters();
         modelAndView.addObject("suppliers", suppliers);
 

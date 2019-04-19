@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sale</title>
-    <link rel="stylesheet" href="../../static/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/style.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
 </head>
 <body>
 <table border="1" style="width:300px">
@@ -23,5 +23,6 @@
         <td th:text="${sale.customer.name}"></td>
     </tr>
 </table>
+<a class="btn btn-default btn-xs" th:href="@{/}">back &raquo;</a>
 </body>
 </html>

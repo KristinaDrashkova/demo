@@ -25,10 +25,7 @@ public class Part {
     @JoinColumn(name = "supplier_id")
     private Supplier supplierId;
 
-    @ManyToMany
-    @JoinTable(name = "parts_cars",
-            joinColumns = @JoinColumn(name = "part_id"),
-            inverseJoinColumns = @JoinColumn(name = "car_id"))
+    @ManyToMany(mappedBy = "parts")
     private Set<Car> cars;
 
     public Part() {
@@ -60,10 +57,6 @@ public class Part {
 
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Supplier getSupplierId() {

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer by ID</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+<table border="1" style="width:300px">
+    <tr>
+        <td colspan="4" align="center"><b>Part</b></td>
+    </tr>
+    <tr>
+        <td><b>name</b></td>
+        <td><b>price</b></td>
+        <td><b>supplier</b></td>
+        <td><b>quantity</b></td>
+    </tr>
+    <tr>
+        <td th:text="${part.name}"></td>
+        <td th:text="${part.price}"></td>
+        <td th:text="${part.supplierId}"></td>
+        <td th:text="${part.quantity}"></td>
+    </tr>
+    <div class="pull-right">
+        <a class="btn btn-success btn-xs" th:href="@{/parts/edit/{id}(id = ${part.id})}">Edit</a>
+        <a class="btn btn-danger btn-xs" th:href="@{/parts/delete/{id}(id = ${part.id})}">Delete</a>
+        <a class="btn btn-default btn-xs" th:href="@{/}">back &raquo;</a>
+    </div>
+</table>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package org.softuni.demo.models.binding;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
 public class ShowCustomerBindingModel {
     private String name;
 
-    private Date birthDate;
+    private LocalDate birthDate;
 
     private Boolean isYoungDriver;
 
@@ -23,11 +24,11 @@ public class ShowCustomerBindingModel {
         this.name = name;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

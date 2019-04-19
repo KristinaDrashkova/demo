@@ -12,7 +12,7 @@ public class DemoErrorController implements ErrorController {
 
     @RequestMapping("/error")
     public String handleError() {
-        return "/error";
+        return "/commons/error";
     }
 
     @Override

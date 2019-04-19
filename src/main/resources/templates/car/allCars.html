@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cars</title>
-    <link rel="stylesheet" href="../../static/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/style.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
 </head>
 <body>
 <table border="1" style="width:300px">
@@ -20,8 +20,10 @@
     <tr th:each="car : ${cars}" th:object="${car}">
         <td th:text="*{make}"></td>
         <td th:text="*{model}"></td>
-        <td th:text="*{traveledDistance}"></td>
+        <td th:text="*{travelledDistance}"></td>
     </tr>
 </table>
+<a class="btn btn-default" th:href="@{/cars/create}">Create New Car</a>
+<a class="btn btn-default btn-xs" th:href="@{/}">back &raquo;</a>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package org.softuni.demo.services;
 
 import org.softuni.demo.entities.Customer;
+import org.softuni.demo.models.binding.CreateAndEditCustomerBindingModel;
 import org.softuni.demo.models.binding.ShowCustomerBindingModel;
 import org.softuni.demo.models.binding.ShowCustomerByIdBindingModel;
 
@@ -18,7 +19,11 @@ public interface CustomerService {
 
     ShowCustomerByIdBindingModel getCustomerById(Long id);
 
-    boolean createCustomer();
+    ShowCustomerBindingModel getCustomerByIdEditMode(Long id);
 
-    boolean editCustomer();
+    ShowCustomerBindingModel createCustomer(CreateAndEditCustomerBindingModel customer);
+
+    ShowCustomerBindingModel editCustomer(Long id, CreateAndEditCustomerBindingModel customer);
+
+    boolean existsCustomer(Long id);
 }

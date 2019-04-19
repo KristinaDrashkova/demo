@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car by ID</title>
-    <link rel="stylesheet" href="../../static/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/style.css">
 </head>
 <body>
 <table border="1" style="width:300px">
@@ -34,5 +32,6 @@
         <td colspan="2" th:text="*{price}"></td>
     </tr>
 </table>
+<a class="btn btn-default btn-xs" th:href="@{/}">back &raquo;</a>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Customer</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+<form action="#" th:action="@{/cars/create}" th:object="${car}" method="post">
+    <fieldset>
+        <legend>New Car</legend>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Make</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="make" th:field="*{make}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Model</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="model" th:field="*{model}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Travelled Distance</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="travelled_distance" th:field="*{travelledDistance}">
+            </div>
+        </div>
+        <div class="container">
+            <label class="col-sm-4 control-label">Parts</label>
+            <div class="col-sm-4 col-sm-offset-4">
+                <select class="form-control" id="parts" multiple="multiple" th:field="*{parts}">
+                    <option th:each="part : ${predefinedPartsList}"
+                            th:value="${part.id}"
+                            th:selected="${car.parts.contains(part)}"
+                            th:text="${part.name}">Part name
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-4">
+                <a class="btn btn-default" th:href="@{/}">Cancel</a>
+                <input type="submit" class="btn btn-primary" value="Submit"/>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+</body>
+</html>

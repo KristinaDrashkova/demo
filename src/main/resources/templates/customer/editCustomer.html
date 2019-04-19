@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../../static/css/style.css">
 </head>
 <body>
-<form action="#" th:action="@{/customers/create}" th:object="${customer}" method="post">
+<form th:action="@{/customers/edit/{id}(id=${id})}" th:object="${customer}" method="post">
     <fieldset>
-        <legend>New Customer</legend>
+        <legend>Edit Customer</legend>
 
         <div class="form-group">
             <label class="col-sm-4 control-label">Name</label>
@@ -21,7 +21,7 @@
         <div class="form-group">
             <label class="col-sm-4 control-label">Date of Birth</label>
             <div class="col-sm-6">
-                <input type="date" th:value="*{birthDate}" class="form-control" id="birth_date" th:field="*{birthDate}">
+                <input type="date" class="form-control" id="birth_date" th:field="*{birthDate}">
             </div>
         </div>
 
